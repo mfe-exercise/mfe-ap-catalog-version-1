@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/mfe-ap-catalog-version-1/static/js/main.96263fa0.js",
+    "main.js": "/mfe-ap-catalog-version-1/static/js/main.56f01593.js",
     "static/js/453.5b5265b8.chunk.js": "/mfe-ap-catalog-version-1/static/js/453.5b5265b8.chunk.js",
     "static/media/unmediated-legacy-integration-example.png": "/mfe-ap-catalog-version-1/static/media/unmediated-legacy-integration-example.417687c60a4f3d0b24e6.png",
     "static/media/access-to-different-domains-example.png": "/mfe-ap-catalog-version-1/static/media/access-to-different-domains-example.c2c29d77f53970b0e04c.png",
@@ -27,10 +27,10 @@
     "static/media/cyclic-dependency-problem.png": "/mfe-ap-catalog-version-1/static/media/cyclic-dependency-problem.2e45ee9e0d2b98a1e09e.png",
     "static/media/search-not-found.svg": "/mfe-ap-catalog-version-1/static/media/search-not-found.137e9f81daba30ea54d90542979249ec.svg",
     "index.html": "/mfe-ap-catalog-version-1/index.html",
-    "main.96263fa0.js.map": "/mfe-ap-catalog-version-1/static/js/main.96263fa0.js.map",
+    "main.56f01593.js.map": "/mfe-ap-catalog-version-1/static/js/main.56f01593.js.map",
     "453.5b5265b8.chunk.js.map": "/mfe-ap-catalog-version-1/static/js/453.5b5265b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.96263fa0.js"
+    "static/js/main.56f01593.js"
   ]
 }
