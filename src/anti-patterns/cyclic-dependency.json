@@ -1,18 +1,18 @@
 {
-  "name": "Knot Micro Frontend",
+  "name": "Cyclic Dependency",
   "category": "Inter-frontend",
   "problem": {
-    "text": "A Knot is composed of three or more MFEs whose communication with each other uses a context-specific interface. This means that navigation and data exchange between screens and fragments heavily depend on the unique context of each MFE involved. Adding new MFEs exacerbates the problem: as the number of MFEs grows, the interface complexity increases due to the introduction of new contexts creating a highly coupled Knot that becomes difficult to maintain and integrate new functionalities.",
+    "text": "Two or more MFEs directly or indirectly depend on each other, resulting in high coupling between screens and fragments, compromising MFEs' independence and modularity. Thus, changes in one MFE require coordination with the others. Circular dependencies lead to challenges in a system's maintenance and evolution, compromising agility and the ability to scale developments efficiently.",
     "image": "",
     "description": ""
   },
   "example": {
-      "text": "Suppose an e-commerce system has MFEs for Digital Products (mfe-digital-products) and Payments (mfe-payments). The product details screen of mfe-digital-products navigates to the payment screen of mfe-payments, passing the product data as a parameter. At a later stage, a Physical Products MFE (mfe-physical-products) is implemented, including screens like delivery tracking, address listing, and address registration. For the unpaid physical products, a modification in the mfe-payments payment screen happens for receiving data of either digital or physical products. Later, adding new product types requires constantly adjusting the payment screen of mfe-payments to display the data for these products. Implementing a communication interface with the following fields would allow the addition of new products without requiring adaptations in mfe-payments. This interface definition must allow the transmission of product details in a uniform format for all types of products. Furthermore, it permits the optional transmission of delivery information and specifies whether delivery information can be provided.",
+      "text": "Consider an e-commerce platform with a payment screen implemented in one mfe. This screen contains a fragment from another mfe used to calculate the shipping cost. When the screen displays changes to the items in the cart, the fragment redoes the delivery calculation, which updates the total purchase amount displayed on the screen. This exchange of information between the screen and the fragment results in high coupling. It is essential to assess whether the payment screen and shipping calculation belong to the same domain and if their implementation is part of the same mfe.",
       "image": "",
       "description": ""
     },
   "solution": {
-      "text": "A practical solution to address the problem of Knots is to implement domain--driven communication interfaces that are both generic and flexible. These interfaces should define a contract based on the domain model, specifying the essential fields required for each MFE to function correctly and interact with others. On designing new fields or attributes, it is essential to ensure their consistency, reusability, and minimizing tight coupling so other MFEs can utilize them. We recommend including a generic field in the interface containing a list of objects with standard properties such as label, value, and type, allowing each MFE to display data on the screen without needing to understand the specific meaning or context of the values. This approach reduces coupling between MFEs, while maintaining benefits such as modularity, scalability, and adaptability to new requirements.",
+      "text": "High coupling between MFEs can be effectively mitigated through event-based communication, which removes the need for direct dependencies between MFEs. Instead, interactions are handled indirectly via a centralized event store. On implementing the Publish-Subscribe (Pub-Sub) pattern, an MFE can publish an event to the browser, allowing other MFEs to subscribe and respond when the event occurs. To ensure consistency and reduce errors, it is recommended to centralize event definitions in a shared library.",
       "image": "",
       "description": ""
     }
